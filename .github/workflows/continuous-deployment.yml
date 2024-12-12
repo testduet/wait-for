@@ -16,9 +16,9 @@ jobs:
       id-token: write
       pages: write
     secrets:
-      APP_ID: ${{ secrets.APP_ID }}
+      APP_ID: ${{ secrets.WORKFLOW_BOT_APP_ID }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      PRIVATE_KEY: ${{ secrets.WORKFLOW_BOT_PRIVATE_KEY }}
     uses: compulim/workflows/.github/workflows/continuous-deployment.yml@main
     with:
       package-name: '@testduet/wait-for'

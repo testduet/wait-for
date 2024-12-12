@@ -25,12 +25,10 @@
 
 import { Config } from './types/config.ts';
 
-interface InternalConfig extends Config {}
-
 // It would be cleaner for this to live inside './queries', but
 // other parts of the code assume that all exports from
 // './queries' are query functions.
-let config: InternalConfig = {
+const config: Config = {
   asyncUtilTimeout: 1000,
   // asyncWrapper and advanceTimersWrapper is to support React's async `act` function.
   // forcing react-testing-library to wrap all async functions would've been

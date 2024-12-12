@@ -23,6 +23,8 @@
 
 // Adopted from https://github.com/testing-library/dom-testing-library/blob/a86c54ccda5242ad8dfc1c70d31980bdbf96af7f/src/wait-for.js
 
+/// <reference types="jest" />
+
 import { getConfig } from './config.ts';
 import {
   // We import these from the helpers rather than using the global version
@@ -73,6 +75,7 @@ function waitFor<T>(
     throw new TypeError('Received `callback` arg must be a function');
   }
 
+  // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     let lastError: unknown;
     let intervalId: number;
@@ -114,16 +117,19 @@ function waitFor<T>(
 
           if (
             'clock' in setTimeout &&
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             typeof (setTimeout as any).clock === 'object' &&
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             'tick' in (setTimeout as any).clock &&
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             typeof (setTimeout as any).clock.tick === 'function'
           ) {
             // Added support for fake timers which added a setTimeout.clock.tick function, such as Sinon.JS and Jest.
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (setTimeout as any).clock.tick(interval);
           } else {
             // Jest use Sinon.JS, but if we call jest.advanceTimersByTime with Sinon.JS fake timers, it will console.error().
             // So we prefer setTimeout.clock.tick before jest.advanceTimersByTime.
-            // @ts-expect-error
             jest.advanceTimersByTime(interval);
           }
         });

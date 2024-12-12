@@ -23,13 +23,15 @@
 
 // Adopted from https://github.com/testing-library/dom-testing-library/blob/a86c54ccda5242ad8dfc1c70d31980bdbf96af7f/src/helpers.ts
 
+/// <reference types="jest" />
+
 function jestFakeTimersAreEnabled(): boolean {
   /* istanbul ignore else */
   // eslint-disable-next-line
-  // @ts-expect-error Jest may not be available.
   if (typeof jest !== 'undefined' && jest !== null) {
     return (
       // legacy timers
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (setTimeout as any)._isMockFunction === true ||
       // modern timers
       // eslint-disable-next-line prefer-object-has-own -- not supported by our support matrix

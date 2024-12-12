@@ -4,7 +4,8 @@ import { waitFor } from '../src/index';
 jest.setTimeout(1_000);
 
 describe.each([
-  ['Jest fake timers' as const]['Jest fake timers with auto advance' as const],
+  ['Jest fake timers' as const],
+  ['Jest fake timers with auto advance' as const],
   ['real timers' as const],
   ['Sinon.JS fake timers' as const],
   ['Sinon.JS fake timers with auto advance' as const]

@@ -18,7 +18,8 @@ describe('real timers', () => {
 
     await waitFor(() => new Promise<void>(resolve => setTimeout(resolve, 100)));
 
-    expect(Date.now() - now).toBeGreaterThanOrEqual(100);
+    // Flakiness: sometimes it is 99.
+    expect(Date.now() - now).toBeGreaterThanOrEqual(99);
   });
 
   test('should reject when throwing an error', () =>

@@ -8,7 +8,7 @@ describe('ES Modules', () => {
     await waitFor(
       () =>
         /** @type {Promise<void>} */
-        new Promise((resolve, reject) => setTimeout(() => (Math.random() > 0.5 ? resolve() : reject()), 100))
+        (new Promise((resolve, reject) => setTimeout(() => (Math.random() > 0.5 ? resolve() : reject()), 100)))
     );
   });
 });

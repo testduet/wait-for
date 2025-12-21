@@ -23,7 +23,7 @@
 
 // Adopted from https://github.com/testing-library/dom-testing-library/blob/a86c54ccda5242ad8dfc1c70d31980bdbf96af7f/src/config.ts
 
-import { Config } from './types/config.ts';
+import { type Config } from './types/config.ts';
 
 // It would be cleaner for this to live inside './queries', but
 // other parts of the code assume that all exports from

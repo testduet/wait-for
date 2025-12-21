@@ -30,9 +30,8 @@ import {
   // We import these from the helpers rather than using the global version
   // because these will be *real* timers, regardless of whether we're in
   // an environment that's faked the timers out.
-  jestFakeTimersAreEnabled
+  fakeTimersAreEnabled
 } from './helpers.ts';
-
 // This is so the stack trace the developer sees is one that's
 // closer to their code (because async stack traces are hard to follow).
 function copyStackTrace(target: unknown, source: unknown): void {
@@ -86,8 +85,8 @@ function waitFor<T>(
 
     const overallTimeoutTimer = setTimeout(handleTimeout, timeout);
 
-    const usingJestFakeTimers = jestFakeTimersAreEnabled();
-    if (usingJestFakeTimers) {
+    const usingFakeTimers = fakeTimersAreEnabled();
+    if (usingFakeTimers) {
       const { unstable_advanceTimersWrapper: advanceTimersWrapper } = getConfig();
       checkCallback();
       // this is a dangerous rule to disable because it could lead to an
@@ -96,7 +95,7 @@ function waitFor<T>(
       // waiting or when we've timed out.
       // eslint-disable-next-line no-unmodified-loop-condition
       while (!finished) {
-        if (!jestFakeTimersAreEnabled()) {
+        if (!fakeTimersAreEnabled()) {
           const error = new Error(
             `Changed from using fake timers to real timers while using waitFor. This is not allowed and will result in very strange behavior. Please ensure you're awaiting all async things your test is doing before changing to real timers. For more info, please go to https://github.com/testing-library/dom-testing-library/issues/830`
           );
@@ -157,7 +156,7 @@ function waitFor<T>(
       finished = true;
       clearTimeout(overallTimeoutTimer);
 
-      if (!usingJestFakeTimers) {
+      if (!usingFakeTimers) {
         clearInterval(intervalId);
       }
 
@@ -169,7 +168,7 @@ function waitFor<T>(
     }
 
     function checkRealTimersCallback() {
-      if (jestFakeTimersAreEnabled()) {
+      if (fakeTimersAreEnabled()) {
         const error = new Error(
           `Changed from using real timers to fake timers while using waitFor. This is not allowed and will result in very strange behavior. Please ensure you're awaiting all async things your test is doing before changing to fake timers. For more info, please go to https://github.com/testing-library/dom-testing-library/issues/830`
         );
@@ -208,6 +207,7 @@ function waitFor<T>(
 
     function handleTimeout() {
       let error: unknown;
+
       if (lastError) {
         error = lastError;
       } else {

@@ -1,8 +1,32 @@
+import FakeTimers from '@sinonjs/fake-timers';
 import { waitFor } from '@testduet/wait-for';
 import { expect } from 'expect';
-import { describe, test } from 'node:test';
+import { afterEach, beforeEach, describe, test } from 'node:test';
+import { format } from 'node:util';
 
-describe('real timers', () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function describeEach<T extends any[]>(cases: readonly T[]) {
+  return (name: string, fn: (...args: T) => void) => {
+    for (const args of cases) {
+      describe(format(name, ...args), () => fn(...args));
+    }
+  };
+}
+
+describeEach([
+  ['Sinon.JS fake timers', undefined] as const,
+  ['Sinon.JS fake timers with', 'shouldAdvanceTime'] as const
+])('waitFor with %s', (_, mode) => {
+  let fakeTimers: FakeTimers.InstalledClock | undefined;
+
+  beforeEach(() => {
+    fakeTimers = FakeTimers.install({ shouldAdvanceTime: mode === 'shouldAdvanceTime' });
+  });
+
+  afterEach(() => {
+    fakeTimers?.uninstall();
+  });
+
   test('should work with queueMicrotask', () => waitFor(() => new Promise<void>(resolve => queueMicrotask(resolve))));
 
   test('should work with setTimeout', () => waitFor(() => new Promise<void>(resolve => setTimeout(resolve, 0))));
@@ -18,8 +42,11 @@ describe('real timers', () => {
 
     await waitFor(() => new Promise<void>(resolve => setTimeout(resolve, 100)));
 
-    // Flakiness: sometimes it is 99.
-    expect(Date.now() - now).toBeGreaterThanOrEqual(99);
+    if (mode === 'shouldAdvanceTime') {
+      expect(Date.now() - now).toBeGreaterThanOrEqual(100);
+    } else {
+      expect(Date.now() - now).toEqual(100);
+    }
   });
 
   test('should reject when throwing an error', () =>

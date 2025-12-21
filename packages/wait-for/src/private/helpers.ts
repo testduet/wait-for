@@ -41,4 +41,13 @@ function jestFakeTimersAreEnabled(): boolean {
   // istanbul ignore next
   return false;
 }
-export { jestFakeTimersAreEnabled };
+
+function sinonJSFakeTimersAreEnabled(): boolean {
+  return setTimeout && 'clock' in setTimeout;
+}
+
+function fakeTimersAreEnabled(): boolean {
+  return jestFakeTimersAreEnabled() || sinonJSFakeTimersAreEnabled();
+}
+
+export { fakeTimersAreEnabled, jestFakeTimersAreEnabled, sinonJSFakeTimersAreEnabled };

@@ -50,17 +50,17 @@
   },
   "homepage": "https://github.com/testduet/wait-for#readme",
   "devDependencies": {
-    "@testing-library/react": "^16.0.1",
-    "@tsconfig/recommended": "^1.0.7",
-    "@tsconfig/strictest": "^2.0.5",
-    "@types/jest": "^29.5.13",
-    "@types/sinonjs__fake-timers": "^8.1.5",
-    "esbuild": "^0.25.0",
-    "expect": "^29.7.0",
-    "nodemon": "^3.1.7",
-    "prettier": "^3.3.3",
-    "publint": "^0.2.11",
-    "tsup": "^8.3.0",
-    "typescript": "^5.6.3"
+    "@testing-library/react": "^16.3.1",
+    "@tsconfig/recommended": "^1.0.13",
+    "@tsconfig/strictest": "^2.0.8",
+    "@types/jest": "^30.0.0",
+    "@types/sinonjs__fake-timers": "^15.0.1",
+    "esbuild": "^0.27.2",
+    "expect": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.7.4",
+    "publint": "^0.3.16",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
   }
 }

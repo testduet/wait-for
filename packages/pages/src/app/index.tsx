@@ -1,17 +1,13 @@
 import React, { StrictMode } from 'react';
-// This is needed for testing React 16 and 17.
-// eslint-disable-next-line react/no-deprecated
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import App from './App.tsx';
 
 const rootElement = document.getElementById('root');
 
-// rootElement && createRoot(rootElement).render(<App />);
-
-render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  rootElement
-);
+rootElement &&
+  createRoot(rootElement).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );

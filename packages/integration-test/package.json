@@ -25,7 +25,6 @@
     "@testduet/wait-for": "^0.0.0-0"
   },
   "devDependencies": {
-    "@happy-dom/global-registrator": "^20.0.11",
     "@sinonjs/fake-timers": "^13.0.5",
     "@tsconfig/strictest": "^2.0.5",
     "@types/expect": "^24.3.2",

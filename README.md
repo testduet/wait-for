@@ -55,8 +55,8 @@ If `expect().toMatchSnapshot()` is placed inside the callback function, it will 
 
 ## Contributions
 
-Like us? [Star](https://github.com/@testduet/wait-for/stargazers) us.
+Like us? [Star](https://github.com/testduet/wait-for/stargazers) us.
 
-Want to make it better? [File](https://github.com/@testduet/wait-for/issues) us an issue.
+Want to make it better? [File](https://github.com/testduet/wait-for/issues) us an issue.
 
-Don't like something you see? [Submit](https://github.com/@testduet/wait-for/pulls) a pull request.
+Don't like something you see? [Submit](https://github.com/testduet/wait-for/pulls) a pull request.

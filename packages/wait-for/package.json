@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/compulim/wait-for.git"
+    "url": "https://github.com/testduet/wait-for.git"
   },
   "keywords": [
     "testing-library",
@@ -46,9 +46,9 @@
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/@testduet/wait-for/issues"
+    "url": "https://github.com/testduet/wait-for/issues"
   },
-  "homepage": "https://github.com/@testduet/wait-for#readme",
+  "homepage": "https://github.com/testduet/wait-for#readme",
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",

@@ -50,7 +50,6 @@
   },
   "homepage": "https://github.com/testduet/wait-for#readme",
   "devDependencies": {
-    "@happy-dom/jest-environment": "^20.0.11",
     "@testing-library/react": "^16.0.1",
     "@tsconfig/recommended": "^1.0.7",
     "@tsconfig/strictest": "^2.0.5",

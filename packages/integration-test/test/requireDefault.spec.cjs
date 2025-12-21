@@ -1,6 +1,7 @@
 /// <reference types="mocha" />
 
 const { waitFor } = require('@testduet/wait-for');
+const { describe, it } = require('node:test');
 
 describe('CommonJS', () => {
   it('should work', async () => {

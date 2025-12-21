@@ -1,6 +1,7 @@
 /// <reference types="mocha" />
 
 import { waitFor } from '@testduet/wait-for';
+import { describe, it } from 'node:test';
 
 describe('ES Modules', () => {
   it('should work', async () => {

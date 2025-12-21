@@ -3,6 +3,7 @@
   "version": "0.0.0-0",
   "description": "Loop a function and spin-wait until it return or resolve.",
   "files": [
+    "./*.js",
     "./dist/"
   ],
   "exports": {
@@ -45,13 +46,14 @@
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/@testduet/wait-for/issues"
+    "url": "https://github.com/testduet/wait-for/issues"
   },
-  "homepage": "https://github.com/@testduet/wait-for#readme",
+  "homepage": "https://github.com/testduet/wait-for#readme",
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
+    "@happy-dom/jest-environment": "^20.0.11",
     "@sinonjs/fake-timers": "^14.0.0",
     "@testing-library/react": "^16.0.1",
     "@tsconfig/recommended": "^1.0.7",

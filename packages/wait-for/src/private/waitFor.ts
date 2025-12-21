@@ -78,7 +78,9 @@ function waitFor<T>(
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     let lastError: unknown;
-    let intervalId: number;
+    // `setInterval` prefers `NodeJS.Timer` but `clearTimeout prefers `number`
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let intervalId: any;
     let finished = false;
     let promiseStatus = 'idle';
 

@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Moved test infrastructure to Node.js test runner, by [@compulim](https://github.com/compulim) in PR [#9](https://github.com/testduet/wait-for/pull/9)
- - Vendor specific tests are moved to integration test
+  - Vendor specific tests are moved to integration test
 
 ### Changed
 
